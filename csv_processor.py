@@ -1,6 +1,7 @@
 import pandas as pd
 from database import add_transaction
 from categorys import categorise_expense
+#need to check the different CSV outputs for each bank and on the input the user selects which bank it is and then it dynalically checks over the different columns for each bank 
 
 def process_csv(file_path):
     """Reads a bank statement CSV file and adds transactions to the database."""
