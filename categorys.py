@@ -1,25 +1,30 @@
-#stikk to test 
-import requests
-import json
-#DeepSeek API Key
-DEEPSEEK_API_KEY = "YOUR_DEEPSEEK_API_KEY"
-DEEPSEEK_API_URL = "https://api.deepseek.com/v1/completion"
-def categorise_expense(description):
-   """Sends a transaction description to DeepSeek and returns a category."""
-   prompt = f"Categorise this transaction: '{description}'. Possible categories: Groceries, Entertainment, Transportation, Food & Drink, Housing, Shopping, Utilities, Health & Fitness, Travel and anything else you deem useful"
-   headers = {
-       'Authorisation': f'Bearer {DEEPSEEK_API_KEY}',
-       'Content-Type': 'application/json'
-   }
-   data = {
-       'model': 'deepseek-llm',
-       'prompt': prompt,
-       'max_tokens': 10,
-       'temperature': 0
-   }
-   response = requests.post(DEEPSEEK_API_URL, headers=headers, json=data)
-   if response.status_code == 200:
-       category = response.json().get('choices', [{}])[0].get('text', '').strip()
-       return category
-   else:
-       return "Uncategorised"
+# from transformers import pipeline
+
+# # Load a pre-trained model for text classification
+# classifier = pipeline("zero-shot-classification", model="distilbert-base-uncased")
+
+# def categorize_transaction(description):
+#     candidate_labels = ["Groceries", "Entertainment", "Transportation", "Food & Drink", "Housing", "Shopping", "Utilities", "Health & Fitness", "Travel"]
+#     result = classifier(description, candidate_labels)
+#     return result['labels'][0]  # Return the top predicted category
+
+# # Example usage
+# transaction_description = "Uber ride to the airport"
+# category = categorize_transaction(transaction_description)
+# print(f"Categorised as: {category}")
+
+
+#Bills
+# Charity
+# Eating Out
+# Entertainment
+# Expenses
+# Family
+# Finances
+# General
+# Gifts
+# Groceries
+# Holidays
+# Personal Care
+# Shopping
+# Transport
